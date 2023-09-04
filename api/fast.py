@@ -1,8 +1,13 @@
 import pandas as pd
 import numpy as np
 import requests
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+import json
+
+class Prediction(BaseModel):
+    df: str
 
 #uvicorn fast:app --reload
 
@@ -21,8 +26,6 @@ app = FastAPI()
 #     res = sum([num1, num2, num3])
 #     return {"The Sum is" : res}
 
-from notebooks.latest_model import model
-from notebooks.v2_preprocessor_for_olis_pipeline import preprocess_features_v2
 
 @app.get("/predict")
 def predict():
@@ -41,9 +44,4 @@ def predict():
     ### COMPARE PREDICTED PROBABILITIES,
     ### RETURN MINIMUM ODDS REQUIRED TO BET FOR EVERY HORSE
 
-    threshold = 0.1
-    required_odds = [1/(x-threshold) for x in predicted_probs]
 
-    #RETURN IN DICTIONARY FORMAT FOR API
-    return {'odds': predicted_probs,
-            'required odds to bet': required_odds}

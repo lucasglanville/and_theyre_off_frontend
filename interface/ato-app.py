@@ -2,9 +2,15 @@
 # coding: utf-8
 
 import streamlit as st
+from st_files_connection import FilesConnection
 import pandas as pd
 import numpy as np
 import base64
+import gcsfs
+import requests
+import json
+
+
 
 st.set_page_config(page_title="And They're Off", page_icon="🐎", initial_sidebar_state="expanded")
 
@@ -13,14 +19,26 @@ st.set_page_config(page_title="And They're Off", page_icon="🐎", initial_sideb
 ##########################################
 
 @st.cache_data
+
+
+
 def load_data():
-    data = pd.read_csv('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/data_cleaned_and_preprocessed_v3.csv',
-                       usecols = ['f_ko', 'pred_isp'])
+    conn = st.experimental_connection('gcs', type= FilesConnection )
+    data = conn.read("and-theyre-off/hr_data_0409_221rem.csv", input_format="csv", ttl=600)
+    # data = pd.read_csv('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/data_cleaned_and_preprocessed_v3.csv',
+    #                    usecols = ['f_ko', 'pred_isp'])
     return data
 data = load_data()
+def extract_date(x):
+    return x[:10]
+def extract_time(x):
+    return x[11:]
+data['date'] = data['f_ko'].apply(extract_date)
+data['time'] = data['f_ko'].apply(extract_time)
 data["required_odds"] = round(1/(data.pred_isp/1.1),2)
 data['pred_isp'] = round(data.pred_isp,2)
-cols = ['f_ko', 'pred_isp','required_odds']
+cols = ['time', 'f_horse', 'pred_isp']
+pred_cols = ['time', 'f_horse', 'pred_isp']
 
 ##########################################
 ##  Style and Formatting                ##
@@ -46,23 +64,23 @@ center_row_text = """
 
 # Inject CSS with Markdown
 
-def get_base64(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+# def get_base64(bin_file):
+#     with open(bin_file, 'rb') as f:
+#         data = f.read()
+#     return base64.b64encode(data).decode()
 
-def set_background(png_file):
-    bin_str = get_base64(png_file)
-    page_bg_img = '''
-    <style>
-    .stApp {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/ascot.jpg')
+# def set_background(png_file):
+#     bin_str = get_base64(png_file)
+#     page_bg_img = '''
+#     <style>
+#     .stApp {
+#     background-image: url("data:image/png;base64,%s");
+#     background-size: cover;
+#     }
+#     </style>
+#     ''' % bin_str
+#     st.markdown(page_bg_img, unsafe_allow_html=True)
+# set_background('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/ascot.jpg')
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
@@ -142,15 +160,62 @@ st.sidebar.info("""DISCLAIMER:
 #########################################
 
 with tab_races:
-    date = st.selectbox("Select Race Date & Time:", data.f_ko.unique(), index = 0)
-    st.markdown('''#### Race Details:''', unsafe_allow_html=True)
+    ### USER SELECTS TRACK & TIME ###
+    date_df = (data[data.date == '02/09/2023'])
+    track = st.selectbox("Select A Racecourse:", date_df.f_track.unique(), index = 0)
+    racecourse_df = (date_df[date_df.f_track == track])
 
-    styler_race_odds = (data[data.f_ko == date][cols]
+
+    time = st.selectbox("Select A Race Time:", racecourse_df.time.unique(), index = 0)
+    # time_df = (racecourse_df[racecourse_df.time == time])
+
+    ### RETURN RACE DETAILS AS DATAFRAME
+    st.markdown('''#### Race Details:''', unsafe_allow_html=True)
+    styler_race_odds = (racecourse_df[racecourse_df.time == time][cols]
                    .style.set_properties(**{'background': 'azure', 'border': '1.2px solid'})
                    .hide(axis='index')
                    .set_table_styles(dfstyle))
                 #    .applymap(color_threshold))
+    styler_race_odds.format({"pred_isp": "{:.2f}".format})
     st.table(styler_race_odds)
+
+    ### CONVERT DATAFRAME TO JSON TO SEND TO API
+    data_to_send = racecourse_df[racecourse_df.time == time].drop(columns = ['date', 'time', 'required_odds'])
+    json_df = data_to_send.to_json(orient="records")
+
+    url = "http://127.0.0.1:8000/return-df"
+    data = json.dumps({"df": json_df})
+    headers = {"Content-Type": "application/json"}
+
+    st.markdown('''#### Race Predictions:''', unsafe_allow_html=True)
+
+    if st.button("Predict"):
+        response = requests.post(url, data=data, headers=headers)
+        st.write(f'The return from the API is: {response}')
+        response = response.json()
+        return_df = pd.read_json(response["df"])
+        # st.write(return_df.shape)
+#
+        return_df['date'] = return_df['f_ko'].apply(extract_date)
+        return_df['time'] = return_df['f_ko'].apply(extract_time)
+        return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
+        return_df['pred_isp'] = round(return_df.pred_isp,2)
+
+        styler_predictions = (return_df[return_df.time == time][cols]
+                   .style.set_properties(**{'background': 'azure', 'border': '1.2px solid'})
+                   .hide(axis='index')
+                   .set_table_styles(dfstyle))
+                #    .applymap(color_threshold))
+        styler_predictions.format({"pred_isp": "{:.2f}".format})
+        st.table(styler_predictions)
+
+        # st.write(return_df)
+
+
+
+
+
+
 
 
     st.success('''**A Brief Note on Methods:**
