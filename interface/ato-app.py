@@ -195,7 +195,7 @@ with tab_races:
         response = response.json()
         return_df = pd.read_json(response["df"])
         # st.write(return_df.shape)
-# 
+#
         return_df['date'] = return_df['f_ko'].apply(extract_date)
         return_df['time'] = return_df['f_ko'].apply(extract_time)
         return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
