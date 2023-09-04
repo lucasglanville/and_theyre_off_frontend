@@ -1,13 +1,10 @@
 wheel
-nbresult
 colorama
 ipdb
-ipykernel
 yapf
-matplotlib
-pygeohash
-pytest
-seaborn
+requests
+base64
+streamlit
 numpy==1.23.5
 pandas==1.5.3
 scipy==1.10.0
@@ -24,7 +21,7 @@ tensorflow==2.10.0; sys_platform != 'darwin' # Windows & Ubuntu Intel chips
 
 
 python-dotenv
-prefect==2.8.1
+
 psycopg2-binary
 
 # API
