@@ -60,7 +60,7 @@ def print_my_sum():
 
 e = print_my_sum()
 e
-
+# 
 # Just add it after st.sidebar:
 # a = st.sidebar.radio('Choose:',[1,2])
 

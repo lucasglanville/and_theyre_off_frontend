@@ -33,7 +33,7 @@ def my_sum(num1: int, num2: int, num3: int):
 @app.post("/return-df")
 def df_post(df: Prediction):
     df =pd.read_json(df.df)
-    
+
     return {"df": df.to_json()}
 
 
@@ -58,3 +58,4 @@ def df_post(df: Prediction):
 #     #RETURN IN DICTIONARY FORMAT FOR API
 #     return {'odds': predicted_probs,
 #             'required odds to bet': required_odds}
+# 
