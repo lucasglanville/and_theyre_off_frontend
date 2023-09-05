@@ -1,23 +1,8 @@
 import pandas as pd
 import numpy as np
 import requests
-from fastapi import FastAPI, Response
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-import json
-from sklearn.preprocessing import MinMaxScaler
-from sklearn import set_config
-from sklearn.impute import SimpleImputer
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import InputLayer, Dense, Dropout
-from keras.utils import get_custom_objects
-import pandas as pd
-import numpy as np
-import pickle
-import warnings
-
-class Prediction(BaseModel):
-    df: str
 
 #uvicorn fast:app --reload
 
@@ -36,7 +21,8 @@ app = FastAPI()
 #     res = sum([num1, num2, num3])
 #     return {"The Sum is" : res}
 
-
+from notebooks.latest_model import model
+from notebooks.v2_preprocessor_for_olis_pipeline import preprocess_features_v2
 
 @app.get("/predict")
 def predict():
@@ -55,4 +41,9 @@ def predict():
     ### COMPARE PREDICTED PROBABILITIES,
     ### RETURN MINIMUM ODDS REQUIRED TO BET FOR EVERY HORSE
 
+    threshold = 0.1
+    required_odds = [1/(x-threshold) for x in predicted_probs]
 
+    #RETURN IN DICTIONARY FORMAT FOR API
+    return {'odds': predicted_probs,
+            'required odds to bet': required_odds}
