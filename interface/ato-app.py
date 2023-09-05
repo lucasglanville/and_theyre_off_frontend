@@ -9,6 +9,7 @@ import base64
 import gcsfs
 import requests
 import json
+from fractions import Fraction
 
 
 
@@ -35,6 +36,12 @@ def extract_time(x):
     return x[11:]
 data['date'] = data['f_ko'].apply(extract_date)
 data['time'] = data['f_ko'].apply(extract_time)
+
+# def float_to_integer(x):
+#     ratio = x.as_integer_ratio()
+#     return f'{ratio[0]}'/{ratio[1]}'
+# data.pred_isp = data[['pred_isp'][0]].apply(float_to_integer)
+
 data["required_odds"] = round(1/(data.pred_isp/1.1),2)
 data['pred_isp'] = round(data.pred_isp,2)
 cols = ['time', 'f_horse', 'pred_isp']
@@ -64,23 +71,23 @@ center_row_text = """
 
 # Inject CSS with Markdown
 
-# def get_base64(bin_file):
-#     with open(bin_file, 'rb') as f:
-#         data = f.read()
-#     return base64.b64encode(data).decode()
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-# def set_background(png_file):
-#     bin_str = get_base64(png_file)
-#     page_bg_img = '''
-#     <style>
-#     .stApp {
-#     background-image: url("data:image/png;base64,%s");
-#     background-size: cover;
-#     }
-#     </style>
-#     ''' % bin_str
-#     st.markdown(page_bg_img, unsafe_allow_html=True)
-# set_background('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/ascot.jpg')
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = '''
+    <style>
+    .stApp {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+set_background('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/ascot.jpg')
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
@@ -127,10 +134,10 @@ st.markdown(
 ##########################################
 
 st.title("Time to place your bets!")
-st.markdown('''##### <span style="color:gray">A Data-led approach to having a flutter...</span>
+st.markdown('''##### <span style="color:white">Select a course and a time, then hit that predict button below!</span>
             ''', unsafe_allow_html=True)
 
-tab_races, tab_horse, tab_explore, tab_faq = st.tabs(["Today' Races", "Horse Lookup",
+tab_races, tab_historic, tab_explore, tab_faq = st.tabs(["Today's Races", "Historic Stats",
                                                                  "Explore", "FAQ"])
 
 col1, col2, col3 = st.sidebar.columns([1,8,1])
@@ -162,21 +169,31 @@ st.sidebar.info("""DISCLAIMER:
 with tab_races:
     ### USER SELECTS TRACK & TIME ###
     date_df = (data[data.date == '02/09/2023'])
+    '02/09/2023'
     track = st.selectbox("Select A Racecourse:", date_df.f_track.unique(), index = 0)
     racecourse_df = (date_df[date_df.f_track == track])
 
+    racecourse_df['Kick Off'] = racecourse_df.time
+    racecourse_df['Horse'] = racecourse_df.f_horse
+    racecourse_df['Jockey'] = racecourse_df.f_jockey
+    racecourse_df['Trainer'] = racecourse_df.f_trainer
+    racecourse_df['Racing Post Odds'] = racecourse_df['pred_isp']
+
+    # racecourse_df['Racing Post Odds'] = racecourse_df['pred_isp'].apply(float_to_integer)
 
     time = st.selectbox("Select A Race Time:", racecourse_df.time.unique(), index = 0)
     # time_df = (racecourse_df[racecourse_df.time == time])
 
+
     ### RETURN RACE DETAILS AS DATAFRAME
-    st.markdown('''#### Race Details:''', unsafe_allow_html=True)
-    styler_race_odds = (racecourse_df[racecourse_df.time == time][cols]
+    st.markdown('''#### <span style="color:white">Race Details:</span>
+            ''', unsafe_allow_html=True)
+    styler_race_odds = (racecourse_df[racecourse_df.time == time][['Horse', 'Jockey', 'Trainer','Racing Post Odds']]
                    .style.set_properties(**{'background': 'azure', 'border': '1.2px solid'})
                    .hide(axis='index')
                    .set_table_styles(dfstyle))
                 #    .applymap(color_threshold))
-    styler_race_odds.format({"pred_isp": "{:.2f}".format})
+    # styler_race_odds.format({"Racing Post Odds": "{:.2f}".format})
     st.table(styler_race_odds)
 
     ### CONVERT DATAFRAME TO JSON TO SEND TO API
@@ -187,21 +204,23 @@ with tab_races:
     data = json.dumps({"df": json_df})
     headers = {"Content-Type": "application/json"}
 
-    st.markdown('''#### Race Predictions:''', unsafe_allow_html=True)
 
-    if st.button("Predict"):
+    if st.button("PREDICT"):
+        st.markdown('''## <span style="color:white">Race Predictions:</span>
+            ''', unsafe_allow_html=True)
         response = requests.post(url, data=data, headers=headers)
         st.write(f'The return from the API is: {response}')
         response = response.json()
         return_df = pd.read_json(response["df"])
         # st.write(return_df.shape)
+        print("Converted To JSON")
 #
         return_df['date'] = return_df['f_ko'].apply(extract_date)
         return_df['time'] = return_df['f_ko'].apply(extract_time)
-        return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
-        return_df['pred_isp'] = round(return_df.pred_isp,2)
+        # return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
+        # return_df['pred_isp'] = round(return_df.pred_isp,2)
 
-        styler_predictions = (return_df[return_df.time == time][cols]
+        styler_predictions = (return_df[return_df.time == time][['f_horse', 'bet','model_preds']]
                    .style.set_properties(**{'background': 'azure', 'border': '1.2px solid'})
                    .hide(axis='index')
                    .set_table_styles(dfstyle))
@@ -211,18 +230,4 @@ with tab_races:
 
         # st.write(return_df)
 
-
-
-
-
-
-
-
-    st.success('''**A Brief Note on Methods:**
-
-The machine learning model deployed in this app is a Random Forest
-Classifier that uses the following information to predict a player's market value: Games Played, Games Started,
-Minutes Per Game, Points Per Game, Usage Percentage, Offensive Box Plus/Minus (OBPM), Value Over Replacement Player (VORP),
-and Win Shares (WS), all scraped from [Basketball Reference](http://www.basketball-reference.com).''',)
-
-    ###############################################################################
+    #################################################################################£
