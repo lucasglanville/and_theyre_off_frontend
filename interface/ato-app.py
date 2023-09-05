@@ -195,13 +195,14 @@ with tab_races:
         response = response.json()
         return_df = pd.read_json(response["df"])
         # st.write(return_df.shape)
+        print("Converted To JSON")
 #
         return_df['date'] = return_df['f_ko'].apply(extract_date)
         return_df['time'] = return_df['f_ko'].apply(extract_time)
-        return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
-        return_df['pred_isp'] = round(return_df.pred_isp,2)
+        # return_df["required_odds"] = round(1/(return_df.pred_isp/1.1),2)
+        # return_df['pred_isp'] = round(return_df.pred_isp,2)
 
-        styler_predictions = (return_df[return_df.time == time][cols]
+        styler_predictions = (return_df[return_df.time == time][['f_horse', 'bet','model_preds']]
                    .style.set_properties(**{'background': 'azure', 'border': '1.2px solid'})
                    .hide(axis='index')
                    .set_table_styles(dfstyle))
