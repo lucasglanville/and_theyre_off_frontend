@@ -87,7 +87,7 @@ def set_background(png_file):
     </style>
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/ascot.jpg')
+set_background('interface/images/ascot.jpg')
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
@@ -144,7 +144,7 @@ col1, col2, col3 = st.sidebar.columns([1,8,1])
 with col1:
     st.write("")
 with col2:
-    st.image('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/images/john-mcririck.jpeg',  use_column_width=True)
+    st.image('interface/images/john-mcririck.jpeg',  use_column_width=True)
 with col3:
     st.write("")
 
