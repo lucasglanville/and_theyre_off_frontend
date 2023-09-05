@@ -5,7 +5,7 @@ with open("requirements.txt") as f:
     content = f.readlines()
 requirements = [x.strip() for x in content if "git+" not in x]
 
-setup(name='',
+setup(name='and_theyre_off',
       version="0.0.12",
       description="and_theyre_off (api_pred)",
       install_requires=requirements,
