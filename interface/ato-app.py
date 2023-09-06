@@ -46,7 +46,6 @@ def float_to_integer(x):
         else:
             return Fraction(str(x)).limit_denominator()
 data['RACING POST ODDS'] = data['RACING POST ODDS'].apply(float_to_integer)
-image_path = os.path.join(os.getcwd(), 'interface', 'images')
 
 cols = ['time', 'f_horse', 'pred_isp']
 pred_cols = ['time', 'f_horse', 'pred_isp']
@@ -434,20 +433,21 @@ with tab_analysis:
 
 
 with tab_aboutus:
+    image_path = os.path.join(os.getcwd(), 'interface', 'images')
     column1, column2 = st.columns([2,9])
     with column1:
-        st.image(os.path.join(image_path, 'JStone2069.jpg', width=100))
+        st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
      
         ""
-        st.image(os.path.join(image_path, "jimjamjoyce.jpg", width=100))
+        st.image(os.path.join(image_path, "jimjamjoyce.jpg"), width=100)
         ""
-        st.image(os.path.join(image_path, "cjh78.jpg", width=100))
-        ""
-
-        st.image(os.path.join(image_path, "lucasglanville.jpg",width=100))
+        st.image(os.path.join(image_path, "cjh78.jpg"), width=100)
         ""
 
-        st.image(os.path.join(image_path, "OliverGreene.jpg", width=100))
+        st.image(os.path.join(image_path, "lucasglanville.jpg"),width=100)
+        ""
+
+        st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
         
         # st.image("../interface/images/JStone2069.jpg", width=100)
         # ""
