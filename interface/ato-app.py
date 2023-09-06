@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import os
 import streamlit as st
 from st_files_connection import FilesConnection
 import pandas as pd
@@ -48,6 +49,7 @@ data['RACING POST ODDS'] = data['RACING POST ODDS'].apply(float_to_integer)
 
 cols = ['time', 'f_horse', 'pred_isp']
 pred_cols = ['time', 'f_horse', 'pred_isp']
+image_path = os.path.join(os.getcwd(), 'interface', 'images')
 
 ##########################################
 ##  Style and Formatting                ##
@@ -90,32 +92,28 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
+
+
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
-set_background('../interface/images/background-2.jpg')
-
-# More Table Styling
-def pred_color_threshold(val):
-    if str(val) == 'BACK?':
-        color = 'lightgreen'
-    else:
-        color = 'lightpink'
-    return 'background-color: %s' % color
+set_background(os.path.join(image_path,'background-2.jpg'))
 
 cell_properties = [('font-size', '16px'),('text-align', 'center')]
 
 heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
-                      ('color', 'black'),  ('font-weight', 'bold'),
-                      ('background', '#e47dff'),('border', '1.2px solid')]
+                       ('color', 'black'),  ('font-weight', 'bold'),
+                       ('background', '#e47dff'),('border', '1.2px solid')]
+
 dfstyle1 = [{"selector": "th", "props": heading_properties1},
-               {"selector": "td", "props": cell_properties}]
+            {"selector": "td", "props": cell_properties}]
 
 heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
-                      ('color', 'black'),  ('font-weight', 'bold'),
-                      ('background', '#88FFB3'),('border', '1.2px solid')]
+                       ('color', 'black'),  ('font-weight', 'bold'),
+                       ('background', '#88FFB3'),('border', '1.2px solid')]
+
 dfstyle2 = [{"selector": "th", "props": heading_properties2},
-               {"selector": "td", "props": cell_properties}]
+            {"selector": "td", "props": cell_properties}]
 
 # Expander Styling
 
@@ -140,12 +138,15 @@ st.title("AND THEY'RE OFF!")
 st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
             ''', unsafe_allow_html=True)
 
+st.title("AND THEY'RE OFF!")
+st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
+            ''', unsafe_allow_html=True)
+
 tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
                                    "Today's Races",
                                    "Analysis",
                                    "About Us"
                                   ])
-
 
 
 #########################################
@@ -226,7 +227,7 @@ with tab_races:
     data_to_send = data_send_df[data_send_df.time == time].drop(columns = ['date', 'time', 'RACING POST ODDS'])
     json_df = data_to_send.to_json(orient="records")
 
-    url = "https://ato-image-byhyua3o7a-nw.a.run.app/return-df"
+    url = "https://ato-imagev2-byhyua3o7a-nw.a.run.app/return-df"
     data = json.dumps({"df": json_df})
     headers = {"Content-Type": "application/json"}
 
@@ -275,6 +276,9 @@ with tab_races:
 ## THE SCIENCE TAB                     ##
 #########################################
 
+graph_path = os.path.join(os.getcwd(), 'interface', 'images', 'graphs')
+    
+
 with tab_analysis:
 
     # st.markdown('''##### <span style="color:black">Simulated Results & Analysis</span>
@@ -299,9 +303,7 @@ with tab_analysis:
     strategies there is, not betting at all:
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-model_vs_baseline.png',
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     Unsurprisingly, betting on every horse is a sure-fire way to lose all your
@@ -315,6 +317,7 @@ with tab_analysis:
     ""
     ""
     ########################### 2. Monthly Metrics ############################
+    
 
     st.markdown('''##### <span style="color:black">2. Monthly Metrics</span>
             ''', unsafe_allow_html=True)
@@ -326,15 +329,12 @@ with tab_analysis:
     in our returns without more than a single year of test data.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-bets_by_month.png',
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-bets_by_month.png'), use_column_width = True)
     ""
     ""
     ""
     ""
     ############ 3. Exploring different model confidence thresholds ############
-
     st.markdown('''##### <span style="color:black">3. Exploring Different Model Confidence Thresholds</span>
             ''', unsafe_allow_html=True)
 
@@ -350,9 +350,7 @@ with tab_analysis:
     different confidence thresholds for bet-placing:
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds1.png',
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds1.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     On our test data, using a 90% confidence threshold generated almost the same
@@ -360,9 +358,7 @@ with tab_analysis:
     bets, and actually generated higher total profit than using a 70% threshold.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds2.png',
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds2.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     As the third graph shows below, bets placed within the 50%-90% confidence band
@@ -370,9 +366,7 @@ with tab_analysis:
     bet-placing was chosen for our final model.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds3.png',
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds3.png'), use_column_width = True)
     ""
     ""
     ""
@@ -382,8 +376,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">4. Exploring Different Odds Bands</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-returns_by_odds.png',
-             caption = "")
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     Analysis by odds bands shows that odds up to 50/1 are still profitable on average
@@ -397,8 +390,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">5. Return On Investment</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-returns_by_odds.png',
-             caption = "")
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     ROI text
@@ -444,17 +436,30 @@ with tab_analysis:
 with tab_aboutus:
     column1, column2 = st.columns([2,9])
     with column1:
-        st.image("../interface/images/JStone2069.jpg", width=100)
+        st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
+     
         ""
-        st.image("../interface/images/jimjamjoyce.jpg", width=100)
+        st.image(os.path.join(image_path, "jimjamjoyce.jpg"), width=100)
         ""
-        st.image("../interface/images/cjh78.jpg", width=100)
-        ""
-
-        st.image("../interface/images/lucasglanville.jpg",width=100)
+        st.image(os.path.join(image_path, "cjh78.jpg"), width=100)
         ""
 
-        st.image("../interface/images/OliverGreene.jpg", width=100)
+        st.image(os.path.join(image_path, "lucasglanville.jpg"),width=100)
+        ""
+
+        st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
+        
+        # st.image("../interface/images/JStone2069.jpg", width=100)
+        # ""
+        # st.image("../interface/images/jimjamjoyce.jpg", width=100)
+        # ""
+        # st.image("../interface/images/cjh78.jpg", width=100)
+        # ""
+
+        # st.image("interface/images/lucasglanville.jpg",width=100)
+        # ""
+
+        # st.image("../interface/images/OliverGreene.jpg", width=100)
 
     with column2:
         st.subheader("Josh Stone \nhttps://github.com/JStone2609")
