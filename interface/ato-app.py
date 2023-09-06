@@ -90,7 +90,7 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
     
-set_background('../interface/images/background-2.jpg')
+set_background('/interface/images/background-2.jpg')
 
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
