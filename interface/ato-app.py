@@ -98,15 +98,6 @@ st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
 set_background(os.path.join(image_path,'background-2.jpg')
-# set_background('interface/images/background-2.jpg')
-
-# More Table Styling
-# def pred_color_threshold(val):
-#     if str(val) == 'BACK?':
-#         color = 'lightgreen'
-#     else:
-#         color = 'lightpink'
-#     return 'background-color: %s' % color
 
 c_properties = [('font-size', '16px'),
                    ('text-align', 'center')]
@@ -114,12 +105,14 @@ c_properties = [('font-size', '16px'),
 heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
                        ('background', '#e47dff'),('border', '1.2px solid')]
+
 dfstyle1 = [{"selector": "th", "props": heading_properties1},
             {"selector": "td", "props": c_properties}]
 
 heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
                        ('background', '#88FFB3'),('border', '1.2px solid')]
+
 dfstyle2 = [{"selector": "th", "props": heading_properties2},
             {"selector": "td", "props": c_properties}]
 
