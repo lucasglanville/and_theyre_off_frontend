@@ -2,7 +2,6 @@ streamlit
 uvicorn
 pandas
 numpy
-base64
 gcsfs
 requests
 json
