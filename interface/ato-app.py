@@ -99,21 +99,25 @@ st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
 set_background(os.path.join(image_path,'background-2.jpg')
 
-c_properties = [('font-size', '16px'),('text-align', 'center')]
+# c_properties = [('font-size', '16px'),('text-align', 'center')]
 
-heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
+# heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
+#                        ('color', 'black'),  ('font-weight', 'bold'),
+#                        ('background', '#e47dff'),('border', '1.2px solid')]
+
+dfstyle1 = [{"selector": "th", "props": [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
-                       ('background', '#e47dff'),('border', '1.2px solid')]
+                       ('background', '#e47dff'),('border', '1.2px solid')]},
+            {"selector": "td", "props": [('font-size', '16px'),('text-align', 'center')]}]
 
-dfstyle1 = [{"selector": "th", "props": heading_properties1},
-            {"selector": "td", "props": c_properties}]
+# heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
+#                        ('color', 'black'),  ('font-weight', 'bold'),
+#                        ('background', '#88FFB3'),('border', '1.2px solid')]
 
-heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
+dfstyle2 = [{"selector": "th", "props": [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
-                       ('background', '#88FFB3'),('border', '1.2px solid')]
-
-dfstyle2 = [{"selector": "th", "props": heading_properties2},
-            {"selector": "td", "props": c_properties}]
+                       ('background', '#88FFB3'),('border', '1.2px solid')]},
+            {"selector": "td", "props": [('font-size', '16px'),('text-align', 'center')]}]
 
 # Expander Styling
 
