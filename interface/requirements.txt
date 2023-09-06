@@ -4,4 +4,3 @@ pandas
 numpy
 gcsfs
 requests
-st_files_connection
