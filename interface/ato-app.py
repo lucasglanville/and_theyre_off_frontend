@@ -97,27 +97,23 @@ def set_background(png_file):
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
-set_background(os.path.join(image_path,'background-2.jpg')
+set_background(os.path.join(image_path,'background-2.jpg'))
 
-# c_properties = [('font-size', '16px'),('text-align', 'center')]
+cell_properties = [('font-size', '16px'),('text-align', 'center')]
 
-# heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
-#                        ('color', 'black'),  ('font-weight', 'bold'),
-#                        ('background', '#e47dff'),('border', '1.2px solid')]
-
-dfstyle1 = [{"selector": "th", "props": [('font-size', '16px'),('text-align', 'center'),
+heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
-                       ('background', '#e47dff'),('border', '1.2px solid')]},
-            {"selector": "td", "props": [('font-size', '16px'),('text-align', 'center')]}]
+                       ('background', '#e47dff'),('border', '1.2px solid')]
 
-# heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
-#                        ('color', 'black'),  ('font-weight', 'bold'),
-#                        ('background', '#88FFB3'),('border', '1.2px solid')]
+dfstyle1 = [{"selector": "th", "props": heading_properties1},
+            {"selector": "td", "props": cell_properties}]
 
-dfstyle2 = [{"selector": "th", "props": [('font-size', '16px'),('text-align', 'center'),
+heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
-                       ('background', '#88FFB3'),('border', '1.2px solid')]},
-            {"selector": "td", "props": [('font-size', '16px'),('text-align', 'center')]}]
+                       ('background', '#88FFB3'),('border', '1.2px solid')]
+
+dfstyle2 = [{"selector": "th", "props": heading_properties2},
+            {"selector": "td", "props": cell_properties}]
 
 # Expander Styling
 
@@ -280,6 +276,9 @@ with tab_races:
 ## THE SCIENCE TAB                     ##
 #########################################
 
+graph_path = os.path.join(os.getcwd(), 'interface', 'images', 'graphs')
+    
+
 with tab_analysis:
 
     # st.markdown('''##### <span style="color:black">Simulated Results & Analysis</span>
@@ -304,7 +303,7 @@ with tab_analysis:
     strategies there is, not betting at all:
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-model_vs_baseline.png',
+   st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'),
              caption = "",
              use_column_width = True)
     ""
@@ -320,6 +319,7 @@ with tab_analysis:
     ""
     ""
     ########################### 2. Monthly Metrics ############################
+    
 
     st.markdown('''##### <span style="color:black">2. Monthly Metrics</span>
             ''', unsafe_allow_html=True)
@@ -331,7 +331,7 @@ with tab_analysis:
     in our returns without more than a single year of test data.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-bets_by_month.png',
+    st.image(os.path.join(graph_path, 'graph-bets_by_month.png'),
              caption = "",
              use_column_width = True)
     ""
@@ -339,7 +339,6 @@ with tab_analysis:
     ""
     ""
     ############ 3. Exploring different model confidence thresholds ############
-
     st.markdown('''##### <span style="color:black">3. Exploring Different Model Confidence Thresholds</span>
             ''', unsafe_allow_html=True)
 
@@ -355,7 +354,7 @@ with tab_analysis:
     different confidence thresholds for bet-placing:
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds1.png',
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds1.png'),
              caption = "",
              use_column_width = True)
     ""
@@ -365,7 +364,7 @@ with tab_analysis:
     bets, and actually generated higher total profit than using a 70% threshold.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds2.png',
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds2.png'),
              caption = "",
              use_column_width = True)
     ""
@@ -375,7 +374,7 @@ with tab_analysis:
     bet-placing was chosen for our final model.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-confidence_thresholds3.png',
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds3.png'),
              caption = "",
              use_column_width = True)
     ""
@@ -387,7 +386,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">4. Exploring Different Odds Bands</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-returns_by_odds.png',
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'),
              caption = "")
     ""
     st.markdown('''<div style="text-align: justify;">
@@ -402,7 +401,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">5. Return On Investment</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image('../interface/images/graphs/graph-returns_by_odds.png',
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'),
              caption = "")
     ""
     st.markdown('''<div style="text-align: justify;">
@@ -449,18 +448,18 @@ with tab_analysis:
 with tab_aboutus:
     column1, column2 = st.columns([2,9])
     with column1:
-        st.image(os.path.join(image_path, 'JStone2069.jpg', width=100)
+        st.image(os.path.join(image_path, 'JStone2069.jpg', width=100))
      
         ""
-        st.image(os.path.join(image_path, "jimjamjoyce.jpg", width=100)
+        st.image(os.path.join(image_path, "jimjamjoyce.jpg", width=100))
         ""
-        st.image(os.path.join(image_path, "cjh78.jpg", width=100)
-        ""
-
-        st.image(os.path.join(image_path, "lucasglanville.jpg",width=100)
+        st.image(os.path.join(image_path, "cjh78.jpg", width=100))
         ""
 
-        st.image(os.path.join(image_path, "OliverGreene.jpg", width=100)
+        st.image(os.path.join(image_path, "lucasglanville.jpg",width=100))
+        ""
+
+        st.image(os.path.join(image_path, "OliverGreene.jpg", width=100))
         
         # st.image("../interface/images/JStone2069.jpg", width=100)
         # ""
