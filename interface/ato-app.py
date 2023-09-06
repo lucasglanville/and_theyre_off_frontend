@@ -108,7 +108,8 @@ set_background(os.path.join(image_path,'background-2.jpg')
 #         color = 'lightpink'
 #     return 'background-color: %s' % color
 
-cell_properties = [('font-size', '16px'),('text-align', 'center')]
+cell_properties = [('font-size', '16px'),
+                   ('text-align', 'center')]
 
 heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
