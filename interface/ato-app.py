@@ -303,9 +303,7 @@ with tab_analysis:
     strategies there is, not betting at all:
     </div>''', unsafe_allow_html=True)
     ""
-   st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'),
-             caption = "",
-             use_column_width = True)
+   st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     Unsurprisingly, betting on every horse is a sure-fire way to lose all your
@@ -331,9 +329,7 @@ with tab_analysis:
     in our returns without more than a single year of test data.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-bets_by_month.png'),
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-bets_by_month.png'), use_column_width = True)
     ""
     ""
     ""
@@ -354,9 +350,7 @@ with tab_analysis:
     different confidence thresholds for bet-placing:
     </div>''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-confidence_thresholds1.png'),
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds1.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     On our test data, using a 90% confidence threshold generated almost the same
@@ -364,9 +358,7 @@ with tab_analysis:
     bets, and actually generated higher total profit than using a 70% threshold.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-confidence_thresholds2.png'),
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds2.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     As the third graph shows below, bets placed within the 50%-90% confidence band
@@ -374,9 +366,7 @@ with tab_analysis:
     bet-placing was chosen for our final model.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-confidence_thresholds3.png'),
-             caption = "",
-             use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-confidence_thresholds3.png'), use_column_width = True)
     ""
     ""
     ""
@@ -386,8 +376,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">4. Exploring Different Odds Bands</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'),
-             caption = "")
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     Analysis by odds bands shows that odds up to 50/1 are still profitable on average
@@ -401,8 +390,7 @@ with tab_analysis:
     st.markdown('''##### <span style="color:black">5. Return On Investment</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'),
-             caption = "")
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     ROI text
