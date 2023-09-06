@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import os
 import streamlit as st
 from st_files_connection import FilesConnection
 import pandas as pd
@@ -45,6 +46,7 @@ def float_to_integer(x):
         else:
             return Fraction(str(x)).limit_denominator()
 data['RACING POST ODDS'] = data['RACING POST ODDS'].apply(float_to_integer)
+image_path = os.path.join(os.getcwd(), 'interface', 'images')
 
 cols = ['time', 'f_horse', 'pred_isp']
 pred_cols = ['time', 'f_horse', 'pred_isp']
@@ -89,8 +91,8 @@ def set_background(png_file):
     </style>
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
-    
-set_background('/interface/images/background-2.jpg')
+
+set_background(os.path.join(image_path,'background-2.jpg')
 
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
@@ -450,17 +452,30 @@ with tab_analysis:
 with tab_aboutus:
     column1, column2 = st.columns([2,9])
     with column1:
-        st.image("../interface/images/JStone2069.jpg", width=100)
+        st.image(os.path.join(image_path, 'JStone2069.jpg', width=100)
+     
         ""
-        st.image("../interface/images/jimjamjoyce.jpg", width=100)
+        st.image(os.path.join(image_path, "jimjamjoyce.jpg", width=100)
         ""
-        st.image("../interface/images/cjh78.jpg", width=100)
-        ""
-
-        st.image("../interface/images/lucasglanville.jpg",width=100)
+        st.image(os.path.join(image_path, "cjh78.jpg", width=100)
         ""
 
-        st.image("../interface/images/OliverGreene.jpg", width=100)
+        st.image(os.path.join(image_path, "lucasglanville.jpg",width=100)
+        ""
+
+        st.image(os.path.join(image_path, "OliverGreene.jpg", width=100)
+        
+        # st.image("../interface/images/JStone2069.jpg", width=100)
+        # ""
+        # st.image("../interface/images/jimjamjoyce.jpg", width=100)
+        # ""
+        # st.image("../interface/images/cjh78.jpg", width=100)
+        # ""
+
+        # st.image("interface/images/lucasglanville.jpg",width=100)
+        # ""
+
+        # st.image("../interface/images/OliverGreene.jpg", width=100)
 
     with column2:
         st.subheader("Josh Stone \nhttps://github.com/JStone2609")
