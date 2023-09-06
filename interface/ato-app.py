@@ -101,12 +101,12 @@ set_background(os.path.join(image_path,'background-2.jpg')
 # set_background('interface/images/background-2.jpg')
 
 # More Table Styling
-def pred_color_threshold(val):
-    if str(val) == 'BACK?':
-        color = 'lightgreen'
-    else:
-        color = 'lightpink'
-    return 'background-color: %s' % color
+# def pred_color_threshold(val):
+#     if str(val) == 'BACK?':
+#         color = 'lightgreen'
+#     else:
+#         color = 'lightpink'
+#     return 'background-color: %s' % color
 
 cell_properties = [('font-size', '16px'),('text-align', 'center')]
 
