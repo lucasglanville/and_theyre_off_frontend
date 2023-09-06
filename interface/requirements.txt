@@ -1,2 +1,10 @@
 streamlit
 uvicorn
+pandas
+numpy
+base64
+gcsfs
+requests
+json
+st_files_connection
+fractions
