@@ -108,20 +108,20 @@ set_background(os.path.join(image_path,'background-2.jpg')
 #         color = 'lightpink'
 #     return 'background-color: %s' % color
 
-cell_properties = [('font-size', '16px'),
+c_properties = [('font-size', '16px'),
                    ('text-align', 'center')]
 
 heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
                        ('background', '#e47dff'),('border', '1.2px solid')]
 dfstyle1 = [{"selector": "th", "props": heading_properties1},
-            {"selector": "td", "props": cell_properties}]
+            {"selector": "td", "props": c_properties}]
 
 heading_properties2 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
                        ('background', '#88FFB3'),('border', '1.2px solid')]
 dfstyle2 = [{"selector": "th", "props": heading_properties2},
-            {"selector": "td", "props": cell_properties}]
+            {"selector": "td", "props": c_properties}]
 
 # Expander Styling
 
