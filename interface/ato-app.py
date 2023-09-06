@@ -303,7 +303,7 @@ with tab_analysis:
     strategies there is, not betting at all:
     </div>''', unsafe_allow_html=True)
     ""
-   st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'), use_column_width = True)
+    st.image(os.path.join(graph_path, 'graph-model_vs_baseline.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
     Unsurprisingly, betting on every horse is a sure-fire way to lose all your
