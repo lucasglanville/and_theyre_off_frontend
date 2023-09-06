@@ -89,6 +89,9 @@ def set_background(png_file):
     </style>
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
+    
+set_background('../interface/images/background-2.jpg')
+
 
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
@@ -140,12 +143,15 @@ st.title("AND THEY'RE OFF!")
 st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
             ''', unsafe_allow_html=True)
 
+st.title("AND THEY'RE OFF!")
+st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
+            ''', unsafe_allow_html=True)
+
 tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
                                    "Today's Races",
                                    "Analysis",
                                    "About Us"
                                   ])
-
 
 
 #########################################
