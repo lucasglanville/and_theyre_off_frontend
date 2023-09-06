@@ -1,4 +1,5 @@
 streamlit
+st-files-connection @ git+https://github.com/streamlit/files-connection@c65a9f0da856207086540baee3a36346bb39c0eb
 uvicorn
 pandas
 numpy
