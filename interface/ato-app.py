@@ -99,8 +99,7 @@ st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
 set_background(os.path.join(image_path,'background-2.jpg')
 
-c_properties = [('font-size', '16px'),
-                   ('text-align', 'center')]
+c_properties = [('font-size', '16px'),('text-align', 'center')]
 
 heading_properties1 = [('font-size', '16px'),('text-align', 'center'),
                        ('color', 'black'),  ('font-weight', 'bold'),
