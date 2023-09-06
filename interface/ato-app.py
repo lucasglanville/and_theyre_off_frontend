@@ -49,6 +49,7 @@ data['RACING POST ODDS'] = data['RACING POST ODDS'].apply(float_to_integer)
 
 cols = ['time', 'f_horse', 'pred_isp']
 pred_cols = ['time', 'f_horse', 'pred_isp']
+image_path = os.path.join(os.getcwd(), 'interface', 'images')
 
 ##########################################
 ##  Style and Formatting                ##
@@ -433,7 +434,6 @@ with tab_analysis:
 
 
 with tab_aboutus:
-    image_path = os.path.join(os.getcwd(), 'interface', 'images')
     column1, column2 = st.columns([2,9])
     with column1:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
