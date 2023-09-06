@@ -6,4 +6,3 @@ gcsfs
 requests
 json
 st_files_connection
-fractions
