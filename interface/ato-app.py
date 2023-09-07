@@ -183,7 +183,7 @@ with tab_overview:
     then we place the bet.</div>''', unsafe_allow_html=True)
     ""
     st.info("""DISCLAIMER:
-                    This app does not in any way constitute financial advice or
+                    This model and its results does not in any way constitute financial advice or
                     guarantee an outcome.
                     [When the fun stops, stop](https://www.begambleaware.org/?gclid=Cj0KCQjwl8anBhCFARIsAKbbpyR-hWh4_1ohK2g55Fv4CQo8uEnyDZiSXOxJN1-uW6SqzKqEe0UOBPsaAt_OEALw_wcB&gclsrc=aw.ds).""",
             icon="⚠️")
