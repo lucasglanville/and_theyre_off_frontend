@@ -489,16 +489,16 @@ with tab_aboutus:
         # st.image("../interface/images/OliverGreene.jpg", width=100)
 
     with column2:
-        st.subheader("Josh Stone \nhttps://github.com/JStone2609")
+        st.image(os.path.join(image_path, "qr-josh"), width=100)
         ""
         ""
-        st.subheader("James Joyce \nhttps://github.com/jimjamjoyce")
+        st.image(os.path.join(image_path, "qr-james"), width=100)
         ""
         ""
-        st.subheader("Connor Hassan \nhttps://github.com/cjh78")
+        st.image(os.path.join(image_path, "qr-connor"), width=100)
         ""
         ""
-        st.subheader("Lucas Glanville \nhttps://github.com/lucasglanville")
+        st.image(os.path.join(image_path, "qr-lucas"), width=100)
         ""
         ""
-        st.subheader("Oliver Greene \nhttps://github.com/OliverGreene")
+        st.image(os.path.join(image_path, "qr-oliver"), width=100)
