@@ -170,13 +170,26 @@ with tab_overview:
     </div>''', unsafe_allow_html=True)
     ""
     st.image('https://user-images.githubusercontent.com/74038190/241765440-80728820-e06b-4f96-9c9e-9df46f0cc0a5.gif',  use_column_width=True)
+  
     st.markdown(" #### Using Neural Networks to analyse historic horse-racing data")
     st.markdown('''<div style="text-align: justify;">
-    Our model was trained on horse racing data from 2020-2022 and tested on data from 2022-2023. The raw data included vast information including
-    basic features such as previous wins, starting odds, jockey and trainer, to name a few. However, we soon realised that basic data was not enough to consistently profit against Betfair Exchange odds and commission.
-    It was our engineered new features, combined with using a Deep Learning Neural Network and a custom loss function that gave us our perceived edge and what we set out to achieve
-    The output was a sophisticated model that we can feed daily prerace data to generate a model confidence metric plus strategy, resulting in a 'back' or 'threshold not met' output that you will see in our 'races' section. 
-    Our model and strategy resulted in a 29% ROI over 1000 simulated backings in the one year test period.
+    Our model was trained on horse racing data from 2020-2022 and tested on data from 2022-2023. 
+    </div>''', unsafe_allow_html=True)
+    ""
+    st.markdown('''<div style="text-align: justify;">
+    The raw data included vast information including basic features such as previous wins, starting odds, jockey and trainer, to name a few.
+    However, we soon realised that basic data was not enough to consistently profit against Betfair Exchange odds and commission.
+    </div>''', unsafe_allow_html=True)
+    ""
+    st.markdown('''<div style="text-align: justify;">
+    It was our engineered new features, combined with using a Deep Learning Neural Network and a custom loss function that gave us our
+    perceived edge and what we set out to achieve. The output was a sophisticated model that we can feed daily pre-race data to, to generate a
+    model confidence metric. This metric plus strategy results in a 'back' or 'threshold not met' decision that you will see in our 'races'
+    section if you use the predict feature. 
+    </div>''', unsafe_allow_html=True)
+    ""
+    st.markdown('''<div style="text-align: justify;">Our model and strategy resulted in a 29% ROI over 1000 simulated backings in the one year 
+    test period.
     </div>''', unsafe_allow_html=True)
     ""
     st.info("""DISCLAIMER:
