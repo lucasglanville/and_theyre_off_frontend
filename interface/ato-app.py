@@ -234,7 +234,7 @@ with tab_races:
     if st.button("Show me the predictions!",use_container_width = True, type = 'primary'):
         st.markdown('''## <span style="color:black">Race Predictions</span>
             ''', unsafe_allow_html=True)
-        "Here are the predictions from our model on whether each horse is worth a bet or not..."
+        "Here are the model confidence metrics for the selected race..."
         # st.markdown('''#### <span style="color:black">Here are the predictions from our model on whether each horse is worth a bet or not...</span>
         #     ''', unsafe_allow_html=True)
         response = requests.post(url, data=data, headers=headers)
