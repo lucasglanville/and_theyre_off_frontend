@@ -500,6 +500,16 @@ with tab_aboutus:
       </div>''', unsafe_allow_html=True)
       ""
       ""
+  with column3:
+    st.image(os.path.join(image_path, "qr-josh.png"), width=100)
+    ""
+    st.image(os.path.join(image_path, "qr-james.png"), width=100)
+    ""
+    st.image(os.path.join(image_path, "qr-connor.png"), width=100)
+    ""
+    st.image(os.path.join(image_path, "qr-lucas.png"), width=100)
+    ""
+    st.image(os.path.join(image_path, "qr-oliver.png"), width=100)
       
       # st.markdown('''##### <span style="color:black">JOSH STONE</span>''',
       #             center_row_text,
@@ -521,14 +531,3 @@ with tab_aboutus:
       #             center_row_text,
       #             unsafe_allow_html=True)
       # ""
-
-    with column3:
-        st.image(os.path.join(image_path, "qr-josh.png"), width=100)
-        ""
-        st.image(os.path.join(image_path, "qr-james.png"), width=100)
-        ""
-        st.image(os.path.join(image_path, "qr-connor.png"), width=100)
-        ""
-        st.image(os.path.join(image_path, "qr-lucas.png"), width=100)
-        ""
-        st.image(os.path.join(image_path, "qr-oliver.png"), width=100)
