@@ -208,7 +208,7 @@ with tab_races:
     # st.markdown('''##### <span style="color:black">Showing results for 02/09/2023</span>
     #         ''', unsafe_allow_html=True)
 
-    date = st.selectbox("Select A Date:", data.date.unique(), index = len(data.date.unique()))
+    date = st.selectbox("Select A Date:", data.date.unique(), index = len(data.date.unique())-1)
     date_df = (data[data.date == date])
     track = st.selectbox("Select A Racecourse:", date_df.f_track.unique(), index = 0)
     racecourse_df = (date_df[date_df.f_track == track])
