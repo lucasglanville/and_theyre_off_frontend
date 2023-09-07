@@ -476,9 +476,8 @@ with tab_aboutus:
 
         st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
     with column2:
-        st.markdown('''##### <span style="color:black">
-        JOSH STONE</span>
-        ''', unsafe_allow_html=True)
+      st.markdown('''##### <span style="color:black">JOSH STONE</span>
+            ''', unsafe_allow_html=True)
         # ""
         # st.image("../interface/images/jimjamjoyce.jpg", width=100)
         # ""
