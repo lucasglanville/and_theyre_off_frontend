@@ -461,7 +461,7 @@ with tab_analysis:
 
 
 with tab_aboutus:
-    column1, column2 = st.columns([2,9])
+    column1, column2, column3 = st.columns([2,9,2])
     with column1:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
      
@@ -475,8 +475,10 @@ with tab_aboutus:
         ""
 
         st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
-        
-        # st.image("../interface/images/JStone2069.jpg", width=100)
+    with column2:
+        st.markdown('''####<div style="text-align: justify;">
+        JOSH STONE 
+        </div>''', unsafe_allow_html=True)
         # ""
         # st.image("../interface/images/jimjamjoyce.jpg", width=100)
         # ""
@@ -488,7 +490,7 @@ with tab_aboutus:
 
         # st.image("../interface/images/OliverGreene.jpg", width=100)
 
-    with column2:
+    with column3:
         st.image(os.path.join(image_path, "qr-josh.png"), width=100)
         ""
         ""
