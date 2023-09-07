@@ -12,7 +12,7 @@ import requests
 import json
 from fractions import Fraction
 
-st.set_page_config(page_title="And They're Off", page_icon=st.image(os.path.join(image_path, 'Logo.png')), initial_sidebar_state="collapsed")
+st.set_page_config(page_title="And They're Off", page_icon=os.path.join(image_path, 'Logo.png'), initial_sidebar_state="collapsed")
 
 ##########################################
 ##  Load and Prep Data                  ##
