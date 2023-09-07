@@ -461,8 +461,8 @@ with tab_analysis:
 
 
 with tab_aboutus:
-    column1, column2, column3 = st.columns([2,9,2])
-    with column1:
+  column1, column2, column3 = st.columns([2,9,2])
+  with column1:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
      
         ""
@@ -470,27 +470,57 @@ with tab_aboutus:
         ""
         st.image(os.path.join(image_path, "cjh78.jpg"), width=100)
         ""
-
         st.image(os.path.join(image_path, "lucasglanville.jpg"),width=100)
         ""
-
         st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
-    with column2:
-      st.markdown('''##### <span style="color:black">JOSH STONE</span>
-            ''', unsafe_allow_html=True)
+    
+  with column2:
+      st.markdown('''<div style="text-align: center;">
+      JOSH STONE
+      </div>''', unsafe_allow_html=True)
       ""
-      st.markdown('''##### <span style="color:black">JAMES JOYCE</span>
-            ''', unsafe_allow_html=True)
       ""
-      st.markdown('''##### <span style="color:black">CONNOR HASSAN</span>
-            ''', unsafe_allow_html=True)
+      st.markdown('''<div style="text-align: center;">
+      JAMES JOYCE
+      </div>''', unsafe_allow_html=True)
       ""
-      st.markdown('''##### <span style="color:black">LUCAS GLANVILLE</span>
-            ''', unsafe_allow_html=True)
       ""
-      st.markdown('''##### <span style="color:black">OLIVER GREENE</span>
-            ''', unsafe_allow_html=True)
+      st.markdown('''<div style="text-align: center;">
+      CONNOR HASSAN
+      </div>''', unsafe_allow_html=True)
       ""
+      ""
+      st.markdown('''<div style="text-align: center;">
+      LUCAS GLANVILLE
+      </div>''', unsafe_allow_html=True)
+      ""
+      ""
+      st.markdown('''<div style="text-align: center;">
+      OLIVER GREENE
+      </div>''', unsafe_allow_html=True)
+      ""
+      ""
+      
+      # st.markdown('''##### <span style="color:black">JOSH STONE</span>''',
+      #             center_row_text,
+      #             unsafe_allow_html=True)
+      # ""
+      # st.markdown('''##### <span style="color:black">JAMES JOYCE</span>''',
+      #             center_row_text,
+      #             unsafe_allow_html=True)
+      # ""
+      # st.markdown('''##### <span style="color:black">CONNOR HASSAN</span>''',
+      #             center_row_text,
+      #             unsafe_allow_html=True)
+      # ""
+      # st.markdown('''##### <span style="color:black">LUCAS GLANVILLE</span>''',
+      #             center_row_text,
+      #             unsafe_allow_html=True)
+      # ""
+      # st.markdown('''##### <span style="color:black">OLIVER GREENE</span>''',
+      #             center_row_text,
+      #             unsafe_allow_html=True)
+      # ""
 
     with column3:
         st.image(os.path.join(image_path, "qr-josh.png"), width=100)
