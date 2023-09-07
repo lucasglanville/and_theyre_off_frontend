@@ -173,19 +173,20 @@ with tab_overview:
   
     st.markdown(" #### Using Neural Networks to analyse historic horse-racing data")
     st.markdown('''<div style="text-align: justify;">
-    Our model was trained on horse racing data from 2020-2022 and tested on data from 2022-2023. 
+    Our model was trained on horse racing data from 2020-2022 and tested on data from 2022-2023.
     </div>''', unsafe_allow_html=True)
     ""
     st.markdown('''<div style="text-align: justify;">
-    The raw data included vast information including basic features such as previous wins, starting odds, jockey and trainer, to name a few.
-    However, we soon realised that basic data was not enough to consistently profit against Betfair Exchange odds and commission.
+    The raw data included basic features such as previous wins, starting odds, jockey and trainer, to name a few.
+    However, we soon realised that original features were not enough for our model to consistently profit against
+    Betfair Exchange odds and commissions during the test stage.
     </div>''', unsafe_allow_html=True)
     ""
     st.markdown('''<div style="text-align: justify;">
-    It was our engineered new features, combined with using a Deep Learning Neural Network and a custom loss function that gave us our
-    perceived edge and what we set out to achieve. The output was a sophisticated model that we can feed daily pre-race data to, to generate a
-    model confidence metric. This metric plus strategy results in a 'back' or 'threshold not met' decision that you will see in our 'races'
-    section if you use the predict feature. 
+    It was our engineered new features and custom loss function, all wrapped in a Deep Learning Neural Network
+    that gave us our perceived edge and what we set out to achieve. The output is now a sophisticated model that we
+    can feed daily pre-race data to generate a model confidence metric. This metric, plus our strategy, results in a
+    'back' or 'threshold not met' decision that can be seen in the 'Predict' feature on the 'races' tab.
     </div>''', unsafe_allow_html=True)
     ""
     st.markdown('''<div style="text-align: justify;">Our model and strategy resulted in a 29% ROI over 1000 simulated backings in the one year 
