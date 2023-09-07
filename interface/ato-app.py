@@ -478,16 +478,19 @@ with tab_aboutus:
     with column2:
       st.markdown('''##### <span style="color:black">JOSH STONE</span>
             ''', unsafe_allow_html=True)
-        # ""
-        # st.image("../interface/images/jimjamjoyce.jpg", width=100)
-        # ""
-        # st.image("../interface/images/cjh78.jpg", width=100)
-        # ""
-
-        # st.image("interface/images/lucasglanville.jpg",width=100)
-        # ""
-
-        # st.image("../interface/images/OliverGreene.jpg", width=100)
+      ""
+      st.markdown('''##### <span style="color:black">JAMES JOYCE</span>
+            ''', unsafe_allow_html=True)
+      ""
+      st.markdown('''##### <span style="color:black">CONNOR HASSAN</span>
+            ''', unsafe_allow_html=True)
+      ""
+      st.markdown('''##### <span style="color:black">LUCAS GLANVILLE</span>
+            ''', unsafe_allow_html=True)
+      ""
+      st.markdown('''##### <span style="color:black">OLIVER GREENE</span>
+            ''', unsafe_allow_html=True)
+      ""
 
     with column3:
         st.image(os.path.join(image_path, "qr-josh.png"), width=100)
