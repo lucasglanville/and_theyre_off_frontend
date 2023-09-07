@@ -13,7 +13,7 @@ import json
 from fractions import Fraction
 
 st.set_page_config(page_title="And They're Off",
-                   page_icon="🏇🏻",
+                   page_icon="🐎",
                    initial_sidebar_state="collapsed")
 
 ##########################################
