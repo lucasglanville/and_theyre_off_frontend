@@ -140,7 +140,7 @@ with col1:
 with col2:
     st.title('''<div style="text-align: justify;">
     AND THEY'RE OFF!"
-    </div>''', unsafe_allow_html=True))
+    </div>''', unsafe_allow_html=True)
     st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
                 ''', unsafe_allow_html=True)
 
