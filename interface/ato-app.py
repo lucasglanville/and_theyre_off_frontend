@@ -133,10 +133,14 @@ st.markdown(
 ##########################################
 ##  Title, Tabs, and Sidebar            ##
 ##########################################
+col1, col2 = st.columns([3,8])
+with col1:
+    st.image(os.path.join(image_path, 'Logo.png'), use_column_width = True)
 
-st.title("AND THEY'RE OFF!")
-st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
-            ''', unsafe_allow_html=True)
+with col2:
+    st.title("AND THEY'RE OFF!")
+    st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
+                ''', unsafe_allow_html=True)
 
 tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
                                    "Today's Races",
@@ -150,9 +154,6 @@ tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
 #########################################
 
 with tab_overview:
-# col1, col2 = st.columns([3,8])
-# with col1:
-# with col2:
 
     st.markdown(" #### Hello!")
     st.markdown('''<div style="text-align: justify;">
