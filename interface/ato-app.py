@@ -12,7 +12,9 @@ import requests
 import json
 from fractions import Fraction
 
-st.set_page_config(page_title="And They're Off", page_icon="https://github.com/lucasglanville/and_theyre_off_frontend/blob/master/interface/images/Logo.png", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="And They're Off",
+                   page_icon="https://github.com/lucasglanville/and_theyre_off_frontend/blob/master/interface/images/Logo.png",
+                   initial_sidebar_state="collapsed")
 
 ##########################################
 ##  Load and Prep Data                  ##
@@ -133,7 +135,7 @@ st.markdown(
 ##########################################
 ##  Title, Tabs, and Sidebar            ##
 ##########################################
-col1, col2 = st.columns([2,8])
+col1, col2 = st.columns([3,8])
 with col1:
     st.image(os.path.join(image_path, 'Logo.png'), use_column_width = True)
 
