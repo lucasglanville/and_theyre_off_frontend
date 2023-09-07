@@ -442,7 +442,6 @@ with tab_aboutus:
   column1, column2, column3 = st.columns([3,9,3])
   with column1:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), use_column_width = True)
-     
         ""
         st.image(os.path.join(image_path, "jimjamjoyce.jpg"), use_column_width = True)
         ""
@@ -453,6 +452,7 @@ with tab_aboutus:
         st.image(os.path.join(image_path, "OliverGreene.jpg"), use_column_width = True)
     
   with column2:
+    ""
     st.subheader("JOSH STONE", divider = "grey")
     st.markdown('''<span style="text-align: center;">
     Project Leader
@@ -461,12 +461,10 @@ with tab_aboutus:
     ""
     ""
     ""
-    ""
     st.subheader("JAMES JOYCE", divider = "grey")
     st.markdown('''<span style="text-align: center;">
     Front-end Development & ML Ops
     </div>''', unsafe_allow_html=True)
-    ""
     ""
     ""
     ""
