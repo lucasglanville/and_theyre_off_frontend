@@ -475,27 +475,23 @@ with tab_aboutus:
         st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
     
   with column2:
-      st.markdown('''###<div style="text-align: center;">
-      JOSH STONE
-      </div>''', unsafe_allow_html=True)
-      ""
-      ""
-      st.markdown('''###<div style="text-align: center;">
+      st.subheader("JOSH STONE", divider = "grey")
+      st.markdown('''<span style="text-align: center;">
       JAMES JOYCE
       </div>''', unsafe_allow_html=True)
       ""
       ""
-      st.markdown('''###<div style="text-align: center;">
+      st.markdown('''<span style style="text-align: center;">
       CONNOR HASSAN
       </div>''', unsafe_allow_html=True)
       ""
       ""
-      st.markdown('''###<div style="text-align: center;">
+      st.markdown('''<div style="text-align: center;">
       LUCAS GLANVILLE
       </div>''', unsafe_allow_html=True)
       ""
       ""
-      st.markdown('''###<div style="text-align: center;">
+      st.markdown('''<div style="text-align: center;">
       OLIVER GREENE
       </div>''', unsafe_allow_html=True)
       ""
