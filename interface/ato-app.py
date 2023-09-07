@@ -138,7 +138,9 @@ with col1:
     st.image(os.path.join(image_path, 'Logo.png'), use_column_width = True)
 
 with col2:
-    st.title("AND THEY'RE OFF!")
+    st.title('''<div style="text-align: justify;">
+    AND THEY'RE OFF!"
+    </div>''', unsafe_allow_html=True))
     st.markdown('''#### <span style="color:black">A data-led approach to finding value in horse racing...</span>
                 ''', unsafe_allow_html=True)
 
