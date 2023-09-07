@@ -144,11 +144,10 @@ with col2:
     st.markdown('''##### <span style="color:black">A data-led approach to finding value in horse racing</span>
                 ''', unsafe_allow_html=True)
 
-tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
-                                   "Races",
-                                   "Analysis",
-                                   "About Us"
-                                  ])
+tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["OVERVIEW",
+                                                              "RACES",
+                                                              "ANALYSIS",
+                                                              "ABOUT US"])
 
 
 #########################################
