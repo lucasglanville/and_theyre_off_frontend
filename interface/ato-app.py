@@ -466,13 +466,13 @@ with tab_aboutus:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), use_column_width = True)
      
         ""
-        st.image(os.path.join(image_path, "jimjamjoyce.jpg"), width=100)
+        st.image(os.path.join(image_path, "jimjamjoyce.jpg"), use_column_width = True)
         ""
-        st.image(os.path.join(image_path, "cjh78.jpg"), width=100)
+        st.image(os.path.join(image_path, "cjh78.jpg"), use_column_width = True)
         ""
-        st.image(os.path.join(image_path, "lucasglanville.jpg"),width=100)
+        st.image(os.path.join(image_path, "lucasglanville.jpg"),use_column_width = True)
         ""
-        st.image(os.path.join(image_path, "OliverGreene.jpg"), width=100)
+        st.image(os.path.join(image_path, "OliverGreene.jpg"), use_column_width = True)
     
   with column2:
     st.subheader("JOSH STONE", divider = "grey")
@@ -481,16 +481,25 @@ with tab_aboutus:
     </div>''', unsafe_allow_html=True)
     ""
     ""
+    ""
+    ""
+    ""
     st.subheader("JAMES JOYCE", divider = "grey")
     st.markdown('''<span style="text-align: center;">
     Front-end Design & ML Ops
     </div>''', unsafe_allow_html=True)
     ""
     ""
+    ""
+    ""
+    ""
     st.subheader("CONNOR HASSAN", divider = "grey")
     st.markdown('''<span style="text-align: center;">
     Back-end Development & ML Ops
     </div>''', unsafe_allow_html=True)
+    ""
+    ""
+    ""
     ""
     ""
     st.subheader("LUCAS GLANVILLE", divider = "grey")
@@ -500,12 +509,13 @@ with tab_aboutus:
     ""
     ""
     ""
+    ""
+    ""
     st.subheader("OLIVER GREENE", divider = "grey")
     st.markdown('''<span style="text-align: center;">
     Data Scientist
     </div>''', unsafe_allow_html=True)
-    ""
-    ""
+    
     
   with column3:
     st.image(os.path.join(image_path, "qr-josh.png"), width=100)
