@@ -99,7 +99,7 @@ def set_background(png_file):
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.markdown(center_heading_text, unsafe_allow_html=True)
 st.markdown(center_row_text, unsafe_allow_html=True)
-set_background(os.path.join(image_path,'circuitboard-background.png'))
+set_background(os.path.join(image_path,'background-2.jpg'))
 
 cell_properties = [('font-size', '16px'),('text-align', 'center')]
 
