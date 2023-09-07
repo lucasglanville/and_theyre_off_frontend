@@ -141,9 +141,11 @@ with col1:
 
 with col2:
     st.title("AND THEY'RE OFF!")
-    st.subheader('''##### <span style="color:black">A data-led approach to finding value in horse racing</span>
-                ''', unsafe_allow_html=True,
-                divider = "violet")
+    # st.markdown('''##### <span style="color:black">A data-led approach to finding value in horse racing</span>
+    #             ''', unsafe_allow_html=True)
+    st.subheader('''<span style="color:black">
+    A data-led approach to finding value in horse racing
+    </span>''', divider = 'violet')
 
 tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["OVERVIEW",
                                                               "RACES",
