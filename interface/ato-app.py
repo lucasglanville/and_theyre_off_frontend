@@ -489,16 +489,16 @@ with tab_aboutus:
         # st.image("../interface/images/OliverGreene.jpg", width=100)
 
     with column2:
-        st.image(os.path.join(image_path, "qr-josh"), width=100)
+        st.image(os.path.join(image_path, "qr-josh"), use_column_width=True)
         ""
         ""
-        st.image(os.path.join(image_path, "qr-james"), width=100)
+        st.image(os.path.join(image_path, "qr-james"), use_column_width=True)
         ""
         ""
-        st.image(os.path.join(image_path, "qr-connor"), width=100)
+        st.image(os.path.join(image_path, "qr-connor"), use_column_width=True)
         ""
         ""
-        st.image(os.path.join(image_path, "qr-lucas"), width=100)
+        st.image(os.path.join(image_path, "qr-lucas"), use_column_width=True)
         ""
         ""
-        st.image(os.path.join(image_path, "qr-oliver"), width=100)
+        st.image(os.path.join(image_path, "qr-oliver"), use_column_width=True)
