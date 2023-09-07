@@ -226,7 +226,7 @@ with tab_races:
     data_to_send = data_send_df[data_send_df.time == time].drop(columns = ['date', 'time', 'RACING POST ODDS'])
     json_df = data_to_send.to_json(orient="records")
 
-    url = "https://ato-imagev2-byhyua3o7a-nw.a.run.app/return-df"
+    url = "https://ato-image-byhyua3o7a-nw.a.run.app/return-df"
     data = json.dumps({"df": json_df})
     headers = {"Content-Type": "application/json"}
 
