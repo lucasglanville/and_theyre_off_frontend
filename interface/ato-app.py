@@ -322,6 +322,7 @@ with tab_analysis:
 
     st.markdown('''##### <span style="color:black">1. Comparing Our Model To Baseline Strategies</span>
             ''', unsafe_allow_html=True)
+  
     st.markdown('''<div style="text-align: justify;">
     Here are our simulated profits of betting £1 on each horse that our model
     indicates. To compare, we also show the results of betting £1 every race on
@@ -347,52 +348,21 @@ with tab_analysis:
 
     st.markdown('''##### <span style="color:black">2. Monthly Metrics</span>
             ''', unsafe_allow_html=True)
-
+  
     st.markdown('''<div style="text-align: justify;">
-    Firstly, a quick explanation of the model confidence metric:
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    Using our custom loss function, we trained the model to minimise losses with two options:
-    ‘back’ or ‘do nothing’. With the trained model, we could input the necessary data to make
-    predictions for future races. This would give us 2 outputs for ‘back’ or ‘do nothing’ between
-    0 and 1, adding up to 1. 
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    If the model confidence returns 0.99 for ‘back’ and 0.01 for ‘do nothing’ -
-    it is saying it is extremely confident that there is value in backing this horse
-    based on the expected odds and vice versa. This is not to be confused with a 99%
-    certainty that this horse will win. 
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    From this point on, model confidence values will be referred to as percentages. 
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    So, a crucial decision we had to make was choosing the model confidence 'threshold'
-    for placing a bet. Should we place a bet every time our model outputs a confidence
-    value above 50%? Or allow ourselves a buffer by raising the threshold for placing a bet?
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    The graph below shows the simulated returns of betting £1 on horses by
-    their model confidence band, the chosen bands being 0-50%, 50-90% and 90-100%. 
-    </div>''', unsafe_allow_html=True)
-    ""
-    st.markdown('''<div style="text-align: justify;">
-    These results firstly show that the model is working -
-    betting on horses with a confidence value below 50% is clearly loss-making,
-    and betting on horses above 50% is clearly profitable.
+    Here are monthly metrics from our simulated results. There are more races -
+    and thus more bets placed - in the summer months. The positive returns are
+    spread throughout the year, with the model making a profit in 8 out of the
+    12 months. It's difficult to discern any seasonal patterns in our returns
+    without more than a single year of test data.
     </div>''', unsafe_allow_html=True)
     ""
     st.image(os.path.join(graph_path, 'graph-bets_by_month.png'), use_column_width = True)
     ""
     ""
-    ""
-    ""
+    
     ############ 3. Returns By Model Confidence ############
+  
     st.markdown('''##### <span style="color:black">3. Returns By Model Confidence</span>
             ''', unsafe_allow_html=True)
 
@@ -435,35 +405,33 @@ with tab_analysis:
     and betting on horses above 50% is clearly profitable.
     </div>''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-confidence_thresholds3.png'), use_column_width = True)
-    ""
-    ""
-    ""
-    ""
-    #################### 4. Exploring different odds bands ####################
-
-    st.markdown('''##### <span style="color:black">4. Exploring Different Odds Bands</span>
-            ''', unsafe_allow_html=True)
-    ""
-    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
+    st.image(os.path.join(graph_path, 'confidence-returns-time.png'), use_column_width = True)
     ""
     st.markdown('''<div style="text-align: justify;">
-    Analysis by odds bands shows that odds up to 50/1 are still profitable on average
-    in the backtests. We might consider removing odds under 10/1 if that odds band didn't show
-    imporovement.
+    We also see that the ROI from horses with a confidence above 90% is much higher
+    than that of horses in the 50-90% range. In fact, bets placed within the 50-90%
+    confidence band only made marginal positive returns. With this information, we
+    chose a confidence threshold of 90% for backing a horse in our final version of
+    the model.
     </div>''', unsafe_allow_html=True)
     ""
+    st.image(os.path.join(graph_path, 'confidence-roi-table.png'), use_column_width = True)
     ""
-    #################### 5. ROI ####################
+    ""
+    #################### 4. Odds Bands Metrics ####################
 
-    st.markdown('''##### <span style="color:black">5. Return On Investment</span>
+    st.markdown('''##### <span style="color:black">4. Odds Bands Metrics</span>
             ''', unsafe_allow_html=True)
     ""
-    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
-    ""
     st.markdown('''<div style="text-align: justify;">
-    ROI text
+    These bar charts show the number of horses, number of bets placed by our final
+    model and the average returns from these bets, all by odds band. Even though
+    there are a lot of horses with odds under 10, our model places very few bets on
+    them - and when it does, it’s loss-making. In future we might consider removing
+    odds under 10 if that odds band doesn’t show improvement.
     </div>''', unsafe_allow_html=True)
+    ""
+    st.image(os.path.join(graph_path, 'graph-returns_by_odds.png'), use_column_width = True)
     ""
     ""
 
