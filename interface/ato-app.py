@@ -464,7 +464,7 @@ with tab_aboutus:
     ""
     st.subheader("JAMES JOYCE", divider = "grey")
     st.markdown('''<span style="text-align: center;">
-    Front-end Design & ML Ops
+    Front-end Development & ML Ops
     </div>''', unsafe_allow_html=True)
     ""
     ""
