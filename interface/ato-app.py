@@ -145,7 +145,7 @@ with col2:
                 ''', unsafe_allow_html=True)
 
 tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
-                                   "Today's Races",
+                                   "Races",
                                    "Analysis",
                                    "About Us"
                                   ])
