@@ -341,8 +341,7 @@ with tab_analysis:
     </div>''', unsafe_allow_html=True)
     ""
     ""
-    ""
-    ""
+  
     ########################### 2. Monthly Metrics ############################
     
 
@@ -422,7 +421,7 @@ with tab_analysis:
 
     st.markdown('''##### <span style="color:black">4. Odds Bands Metrics</span>
             ''', unsafe_allow_html=True)
-    ""
+
     st.markdown('''<div style="text-align: justify;">
     These bar charts show the number of horses, number of bets placed by our final
     model and the average returns from these bets, all by odds band. Even though
@@ -436,39 +435,8 @@ with tab_analysis:
     ""
 
 #########################################
-## TEST TAB                            ##
+## ABOUT US TAB                        ##
 #########################################
-
-# with tab_test:
-
-#     col4, col5 = st.columns([8,8], gap = 'large')
-#     with col4:
-#         st.image("../interface/images/graphs/graph-returns_by_odds.png",
-#                  use_column_width= True)
-#         st.image("../interface/images/graphs/graph-returns_by_odds.png",
-#                  use_column_width= True)
-#     with col5:
-#         st.markdown('''<div style="text-align: justify;">Our model was trained on horse-racing data from the past
-#                             two years, which included information about previous wins,
-#                             starting odds, jockey and trainer. Using a Deep Learning Neural Network, we were able to use
-#                             the model to generate our own odds for horses within any
-#                             given race. If the difference between our winner and the
-#                             bookies' favourite was above a certain threshold
-#                             then we place the bet.</div>''', unsafe_allow_html=True)
-#         ""
-#         ""
-#         ""
-#         st.markdown('''<div style="text-align: justify;">Our model was trained on horse-racing data from the past
-#                             two years, which included information about previous wins,
-#                             starting odds, jockey and trainer. Using a Deep Learning Neural Network, we were able to use
-#                             the model to generate our own odds for horses within any
-#                             given race. If the difference between our winner and the
-#                             bookies' favourite was above a certain threshold
-#                             then we place the bet.</div>''', unsafe_allow_html=True)
-#         ""
-#         ""
-#         ""
-
 
 with tab_aboutus:
   column1, column2, column3 = st.columns([3,9,3])
