@@ -157,7 +157,7 @@ tab_overview, tab_races, tab_analysis, tab_aboutus = st.tabs(["Overview",
 
 with tab_overview:
     st.markdown('''<div style="text-align: justify;">
-    Welcome to AND THEY'RE OFF, a data-science project that combines futuristic
+    Welcome to *AND THEY'RE OFF*, a data-science project that combines futuristic
     deep-learning techniques with the age-old sport of horse racing.
     </div>''', unsafe_allow_html=True)
     ""
