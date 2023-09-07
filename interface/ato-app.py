@@ -495,14 +495,10 @@ with tab_aboutus:
     with column3:
         st.image(os.path.join(image_path, "qr-josh.png"), width=100)
         ""
-        ""
         st.image(os.path.join(image_path, "qr-james.png"), width=100)
-        ""
         ""
         st.image(os.path.join(image_path, "qr-connor.png"), width=100)
         ""
-        ""
         st.image(os.path.join(image_path, "qr-lucas.png"), width=100)
-        ""
         ""
         st.image(os.path.join(image_path, "qr-oliver.png"), width=100)
