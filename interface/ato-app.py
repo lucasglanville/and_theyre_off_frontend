@@ -461,9 +461,9 @@ with tab_analysis:
 
 
 with tab_aboutus:
-  column1, column2, column3 = st.columns([2,9,2])
+  column1, column2, column3 = st.columns([3,9,2])
   with column1:
-        st.image(os.path.join(image_path, 'JStone2069.jpg'), width=100)
+        st.image(os.path.join(image_path, 'JStone2069.jpg'), use_column_width = True)
      
         ""
         st.image(os.path.join(image_path, "jimjamjoyce.jpg"), width=100)
@@ -497,6 +497,7 @@ with tab_aboutus:
     st.markdown('''<span style="text-align: center;">
     Data Scientist
     </div>''', unsafe_allow_html=True)
+    ""
     ""
     ""
     st.subheader("OLIVER GREENE", divider = "grey")
