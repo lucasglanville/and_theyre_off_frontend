@@ -461,7 +461,7 @@ with tab_analysis:
 
 
 with tab_aboutus:
-  column1, column2, column3 = st.columns([3,9,2])
+  column1, column2, column3 = st.columns([3,9,3])
   with column1:
         st.image(os.path.join(image_path, 'JStone2069.jpg'), use_column_width = True)
      
@@ -518,15 +518,15 @@ with tab_aboutus:
     
     
   with column3:
-    st.image(os.path.join(image_path, "qr-josh.png"), width=100)
+    st.image(os.path.join(image_path, "qr-josh.png"), use_column_width = True)
     ""
-    st.image(os.path.join(image_path, "qr-james.png"), width=100)
+    st.image(os.path.join(image_path, "qr-james.png"), use_column_width = True)
     ""
-    st.image(os.path.join(image_path, "qr-connor.png"), width=100)
+    st.image(os.path.join(image_path, "qr-connor.png"), use_column_width = True)
     ""
-    st.image(os.path.join(image_path, "qr-lucas.png"), width=100)
+    st.image(os.path.join(image_path, "qr-lucas.png"), use_column_width = True)
     ""
-    st.image(os.path.join(image_path, "qr-oliver.png"), width=100)
+    st.image(os.path.join(image_path, "qr-oliver.png"), use_column_width = True)
       
       # st.markdown('''##### <span style="color:black">JOSH STONE</span>''',
       #             center_row_text,
