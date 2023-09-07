@@ -185,7 +185,8 @@ with tab_overview:
     st.info("""DISCLAIMER:
                     This app does not in any way constitute financial advice or
                     guarantee an outcome.
-                    [When the fun stops, stop](https://www.begambleaware.org/?gclid=Cj0KCQjwl8anBhCFARIsAKbbpyR-hWh4_1ohK2g55Fv4CQo8uEnyDZiSXOxJN1-uW6SqzKqEe0UOBPsaAt_OEALw_wcB&gclsrc=aw.ds).""", icon="⚠️")
+                    [When the fun stops, stop](https://www.begambleaware.org/?gclid=Cj0KCQjwl8anBhCFARIsAKbbpyR-hWh4_1ohK2g55Fv4CQo8uEnyDZiSXOxJN1-uW6SqzKqEe0UOBPsaAt_OEALw_wcB&gclsrc=aw.ds).""",
+            icon="⚠️")
 
 #########################################
 ## RACES TAB                           ##
@@ -266,6 +267,22 @@ with tab_races:
                 #    .applymap(pred_color_threshold))
         st.table(styler_predictions)
         # styler_predictions.format({"pred_isp": "{:.2f}".format})
+        st.info("""
+        PLEASE READ CAREFULLY:
+        1. The model ONLY applies to Betfair Exchange odds. Other bookmakers will have lower odds and the potential edge will not hold.
+        2. The model is trained on odds FIVE minutes before the race starts and ONLY applies to horses that have odds of < 50.0 at this EXACT
+        point in time.
+        3. Any horses FIVE minutes before race start with odds >50.0 would automatically not reach our model threshold, but are still included
+        in the horse list.
+        
+        - If we were to put this model into production we would automate placement using a [Betfair bot](https://www.bfbotmanager.com/en) that would only ’back’ 
+        selections 5 mins before race time on horses with odds <50.0.
+        - If anyone was to use this model manually, they would need to check the odds manually 5 mins before the race and ‘back’
+        only if odds <50.0.
+
+        DISCLAIMER: none of the above constitutes financial advice and the model is still in advanced 'testing' phases.
+
+        """, icon="⚠️") 
 
         # st.write(return_df)
 
