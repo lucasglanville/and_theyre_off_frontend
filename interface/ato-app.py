@@ -23,7 +23,7 @@ st.set_page_config(page_title="And They're Off",
 @st.cache_data
 def load_data():
     conn = st.experimental_connection('gcs', type= FilesConnection )
-    data = conn.read("and-theyre-off/hr_thurs_rem.csv", input_format="csv", ttl=600)
+    data = conn.read("and-theyre-off/hr_fri_rem.csv", input_format="csv", ttl=600)
     # data = pd.read_csv('/Users/james/code/lucasglanville/and_theyre_off_frontend/interface/data_cleaned_and_preprocessed_v3.csv',
     #                    usecols = ['f_ko', 'pred_isp'])
     return data
